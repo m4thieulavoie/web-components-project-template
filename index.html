@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web components basic project</title>
+  </head>
+  <link rel="stylesheet" href="styles.css" />
+  <body>
+    <app-banner>
+      This a nice notification!
+    </app-banner>
+    <h1>
+      Web components basic project.
+    </h1>
+
+    <p>
+      I know this is ugly, but it's ok. You should be messing around the in code
+      more than the UI.
+    </p>
+
+    <h3>
+      Component extending a HTML Element
+    </h3>
+    <button is="app-button" onclick="toggleTheme()">
+      This is a custom button, it changes the theme for no reason
+    </button>
+
+    <script>
+      function toggleTheme() {
+        document.querySelector("body").classList.toggle("dark-mode");
+      }
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
