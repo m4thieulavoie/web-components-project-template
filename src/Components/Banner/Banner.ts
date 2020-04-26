@@ -6,19 +6,27 @@ export class BannerComponent extends WebComponent {
   static get observedAttributes() {
     return [""];
   }
+
+  randomProperty = "wazza";
+
   constructor() {
     super({
       style: styles,
     });
   }
 
+  private onClick = () => {
+    // Example of dispatching a custom event
+    this.dispatchEvent(
+      new CustomEvent("custom", { detail: { whatever: "yes" } })
+    );
+    this.remove();
+  };
+
   render() {
-    const closeButton = document.createElement("button");
-    closeButton.onclick = () => this.remove();
-    closeButton.textContent = "✖";
     return html`
       <slot></slot>
-      <button @click="${() => this.remove()}">✖</button>
+      <button @click="${this.onClick}">✖</button>
     `;
   }
 }

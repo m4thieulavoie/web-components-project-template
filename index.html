@@ -27,6 +27,13 @@
     >
 
     <script>
+      // Example of listening a custom event
+      const banner = document.querySelector("app-banner");
+      banner.addEventListener("custom", (e) => {
+        console.warn(e);
+        console.log(`Banner random value is ${banner.randomProperty}`);
+      });
+
       function toggleTheme() {
         document.querySelector("body").classList.toggle("dark-mode");
       }

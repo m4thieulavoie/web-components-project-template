@@ -52,6 +52,15 @@ window.customElements.define("app-button", ButtonComponent, {
 });
 ```
 
+# Dependencies
+
+This package depends on some packages
+
+- Webpack
+- Babel
+- sass-to-string
+- lit-html
+
 # Like this package?
 
 Of course you do! Thinking and coding this package implied quite a lot of coffee. If you want, you can [buy me one](https://buymeacoff.ee/mathieulavoie)! ☕️
