@@ -1,17 +1,31 @@
 import styles from "./Buttons.styles.scss";
-import { applyStyleToElement } from "sass-to-string";
+import { WebComponent } from "../Component/WebComponent";
+import { html } from "lit-html";
 
-export class ButtonComponent extends HTMLButtonElement {
+export class ButtonComponent extends WebComponent {
+  static get observedAttributes() {
+    return ["dark"];
+  }
   constructor() {
-    super();
+    super({
+      style: styles,
+    });
   }
 
-  connectedCallback() {
-    this.classList.add("wc-button");
-    applyStyleToElement(this, styles);
+  render() {
+    return html`
+      <button
+        class="${this.applyClasses([
+          {
+            apply: this.hasAttribute("dark"),
+            className: "dark",
+          },
+        ])}"
+      >
+        <slot></slot>
+      </button>
+    `;
   }
 }
 
-window.customElements.define("app-button", ButtonComponent, {
-  extends: "button",
-});
+window.customElements.define("app-button", ButtonComponent);

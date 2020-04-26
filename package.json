@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.4.3",
+    "lit-html": "^1.2.1",
     "node-sass": "^4.14.0",
     "sass-to-string": "1.1.0"
   }

@@ -1,22 +1,25 @@
 import styles from "./Banner.styles.scss";
-import { applyStyleToElement } from "sass-to-string";
+import { html } from "lit-html";
+import { WebComponent } from "../Component/WebComponent";
 
-export class BannerComponent extends HTMLElement {
+export class BannerComponent extends WebComponent {
+  static get observedAttributes() {
+    return [""];
+  }
   constructor() {
-    super();
+    super({
+      style: styles,
+    });
   }
 
-  connectedCallback() {
-    const shadow = this.attachShadow({ mode: "open" });
-    this.classList.add("wc-banner");
-    applyStyleToElement(shadow, styles);
-    const content = document.createElement("slot");
-    shadow.appendChild(content);
-
+  render() {
     const closeButton = document.createElement("button");
     closeButton.onclick = () => this.remove();
     closeButton.textContent = "✖";
-    shadow.appendChild(closeButton);
+    return html`
+      <slot></slot>
+      <button @click="${() => this.remove()}">✖</button>
+    `;
   }
 }
 

@@ -1,6 +1,5 @@
 button {
-  color: red;
-  span {
-    color: blue;
-  }
+  background-color: var(--button-bg-color);
+  color: var(--button-color);
+  padding: 10px;
 }
